@@ -1,6 +1,7 @@
 import pyautogui as pt
 import time
 
+
 def rellenar_ficha_tecnica():
     location = pt.locateOnScreen('meli_modificar.png', confidence=.9)
     if location:
