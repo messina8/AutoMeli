@@ -14,33 +14,38 @@ def rellenar_ficha_tecnica():
         ficha_location = pt.locateOnScreen('ficha/ficha_incompleta.png', confidence=.9)
         ficha_completa = pt.locateOnScreen('ficha/ficha_completa.png', confidence=.9)
         while not ficha_location and not ficha_completa:
-            pt.scroll(-100)
+            pt.scroll(-300)
             ficha_location = pt.locateOnScreen('ficha/ficha_incompleta.png', confidence=.9)
             ficha_completa = pt.locateOnScreen('ficha/ficha_completa.png', confidence=.9)
         if ficha_completa:
             print('La ficha ya está completa.')
+            exit()
         elif ficha_location:
             pt.moveTo(ficha_location)
             pt.click()
             pt.typewrite('0')
-        confirmar_location = pt.locateOnScreen('confirmar.png', confidence=.9)
-        while not confirmar_location:
+        confirm_location = pt.locateOnScreen('confirmar.png', confidence=.9)
+        while not confirm_location:
             next_location = pt.locateAllOnScreen('ficha/completa.png', confidence=.8)
             next_yes_no = pt.locateAllOnScreen('ficha/si_no.png', confidence=.9)
-            if next_location:
-                for i in next_location:
-                    pt.moveTo(i)
-                    pt.click()
-                    pt.typewrite('0')
-            elif next_yes_no:
-                for i in next_yes_no:
-                    pt.moveTo(i)
-                    pt.click()
-            confirmar_location = pt.locateOnScreen('confirmar.png', confidence=.9)
-            pt.scroll(-50)
+            tapa_location = pt.locateOnScreen('ficha/tapa_libro.png', confidence=.7)
+            if tapa_location:
+                pt.moveTo(tapa_location)
+                pt.click()
+                pt.moveRel(0, 100)
+                pt.click()
+            for i in next_location:
+                pt.moveTo(i)
+                pt.click()
+                pt.typewrite('0')
+            for i in next_yes_no:
+                pt.moveTo(i)
+                pt.click()
+            pt.scroll(-500)
+            confirm_location = pt.locateOnScreen('confirmar.png', confidence=.9)
             time.sleep(.5)
         time.sleep(.5)
-        pt.moveTo(confirmar_location)
+        pt.moveTo(confirm_location)
         pt.click()
 
     else:

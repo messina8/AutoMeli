@@ -17,5 +17,5 @@ def ficha():
 
 
 if __name__ == '__main__':
-    price()
+    # price()
     ficha()
