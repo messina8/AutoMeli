@@ -26,8 +26,8 @@ def rellenar_ficha_tecnica():
             pt.typewrite('0')
         confirm_location = pt.locateOnScreen('confirmar.png', confidence=.9)
         while not confirm_location:
-            next_location = pt.locateAllOnScreen('ficha/completa.png', confidence=.8)
-            next_yes_no = pt.locateAllOnScreen('ficha/si_no.png', confidence=.9)
+            next_location = pt.locateAllOnScreen('ficha/completa.png', confidence=.75)
+            next_yes_no = pt.locateAllOnScreen('ficha/si_no.png', confidence=.85)
             tapa_location = pt.locateOnScreen('ficha/tapa_libro.png', confidence=.7)
             if tapa_location:
                 pt.moveTo(tapa_location)
