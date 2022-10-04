@@ -3,7 +3,7 @@ import time
 
 
 def rellenar_ficha_tecnica():
-    location = pt.locateOnScreen('meli_modificar.png', confidence=.9)
+    location = pt.locateOnScreen('precio/meli_modificar.png', confidence=.9)
     if location:
         pt.moveTo(location)
         pt.click()
@@ -24,7 +24,7 @@ def rellenar_ficha_tecnica():
             pt.moveTo(ficha_location)
             pt.click()
             pt.typewrite('0')
-        confirm_location = pt.locateOnScreen('confirmar.png', confidence=.9)
+        confirm_location = pt.locateOnScreen('precio/confirmar.png', confidence=.9)
         while not confirm_location:
             next_location = pt.locateAllOnScreen('ficha/completa.png', confidence=.75)
             next_yes_no = pt.locateAllOnScreen('ficha/si_no.png', confidence=.85)
@@ -42,7 +42,7 @@ def rellenar_ficha_tecnica():
                 pt.moveTo(i)
                 pt.click()
             pt.scroll(-500)
-            confirm_location = pt.locateOnScreen('confirmar.png', confidence=.9)
+            confirm_location = pt.locateOnScreen('precio/confirmar.png', confidence=.9)
             time.sleep(.5)
         time.sleep(.5)
         pt.moveTo(confirm_location)
