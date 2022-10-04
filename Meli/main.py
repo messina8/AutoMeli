@@ -1,4 +1,3 @@
-import pyautogui as pt
 import time
 import ficha_tecnica
 import precio
